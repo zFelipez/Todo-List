@@ -1,0 +1,66 @@
+
+.container{
+   
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6rem;
+}
+
+.form{
+
+    background-color: rgba(0, 117, 156, 0.749);
+    height: 55vh;
+    width: 40rem ;
+    border-radius: 1rem ; 
+    
+}
+
+.h1{
+   
+   margin-top: 2rem; 
+   font-size: 2rem ; 
+}
+
+.formContainer{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center ; 
+  gap: 1.5rem ; 
+
+
+}
+
+.firstInput, .secondInput {
+
+     border-radius: .2rem ;
+     height: 2rem ;
+     width : 20rem ; 
+     border: none ;
+      
+
+     
+}
+
+.firstInput:focus , .secondInput:focus{
+    outline: 0.5px solid rgb(49, 47, 0) ; 
+}
+
+ 
+
+.btn{
+   height: 2rem ; 
+   width : 10rem; 
+   border: none;
+   color: white ;
+   background-color: black; 
+}
+
+.btn:hover{
+  background-color: rgba(0, 31, 49, 0.346); 
+  outline: 0.1px solid black; 
+
+  
+}
