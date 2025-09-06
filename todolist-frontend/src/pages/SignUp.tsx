@@ -1,4 +1,5 @@
-import GeneralForm from "../components";
+import GeneralForm from "../components/GeneralForm";
+
 
 
 export default function SignUp (){

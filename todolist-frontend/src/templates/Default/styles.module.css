@@ -1,0 +1,23 @@
+
+.generalContainer{
+
+    
+ 
+   
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6rem;
+ 
+}
+
+.containerDefault{
+
+    background-color: rgba(0, 117, 156, 0.749);
+    min-height: 55vh;
+    width: 40rem ;
+    border-radius: 1rem ; 
+    display:flex;
+  
+    justify-content: center;
+}
