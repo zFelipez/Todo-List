@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom';
 import styles from './styles.module.css';
+import type React from 'react';
+import NavIcons from '../NavIcons';
 
 
 
+type TopMenuProps= {
+
+    h1: React.ReactNode
+}
 
 
-export default function TopMenu(){
+
+export default function TopMenu( {h1}: TopMenuProps){
 
 return(
 
@@ -15,7 +22,7 @@ return(
 
 
 <div className={styles.title}>
-    <h1 className= {styles.h1}> Lista de Tarefas </h1>
+    <h1 className= {styles.h1}>{h1}</h1>
 
 
     
@@ -25,19 +32,17 @@ return(
 
 <div className= {styles.iconsContainer }>
 
-<Link to= '/'> <span className={`${styles.icon} material-symbols-outlined`}>add
-</span> </Link>
+ 
 
 
+<NavIcons linkTo= {'/'}  iconName= {'home'}></NavIcons>
+<NavIcons linkTo= {'addtask'}  iconName= {'add'}></NavIcons>
+<NavIcons linkTo= {'/login'}  iconName= {'login'}></NavIcons>
 
- <Link to= '/'>  <span className={`${styles.icon} material-symbols-outlined`}>
-delete
-</span> </Link>
+ 
 
 
-<Link to= '/login'> <span className={`${styles.icon} material-symbols-outlined`}>
-login
-</span>  </Link>
+ 
 
 </div>
 

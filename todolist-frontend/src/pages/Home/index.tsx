@@ -14,7 +14,7 @@ export default function Home(){
     
     <Default>
 
-     <TopMenu/>
+     <TopMenu h1={'Lista de Tarefas'}/>
 
         
     </Default>

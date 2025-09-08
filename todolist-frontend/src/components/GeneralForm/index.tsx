@@ -12,9 +12,10 @@ type GeneralFormProps= {
     logOrSignPage:boolean, 
     sentence?: string, 
     link?: string,
+    children?: React.ReactNode
 } 
 
-export default function GeneralForm ( {title, firstInput, secondInput,submitButton,placeholdFirst,placeholdSecond, logOrSignPage, sentence, link } : GeneralFormProps){
+export default function GeneralForm ( {title, firstInput, secondInput,submitButton,placeholdFirst,placeholdSecond, logOrSignPage, sentence, link,children } : GeneralFormProps){
 
 
 
@@ -25,9 +26,10 @@ export default function GeneralForm ( {title, firstInput, secondInput,submitButt
       
      
       <div className={styles.container}> 
-
+      
+      
        <form action="" className={styles.form}>
-     
+          {children && <div className={styles.children}>{children}</div>  }
          <div className={styles.formContainer}>
  <h1 className={styles.h1}> {title} </h1>
         <input className = {styles.firstInput} type={firstInput}  placeholder= { placeholdFirst } />

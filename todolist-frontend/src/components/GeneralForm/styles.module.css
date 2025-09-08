@@ -15,10 +15,14 @@
     border-radius: 1rem ; 
     
 }
-
+.children{
+  text-align:right;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
 .h1{
    
-   margin-top: 2rem; 
+   height:fit-content; 
    font-size: 2rem ; 
 }
 
@@ -28,7 +32,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center ; 
-  gap: 1.5rem ; 
+  gap: 1rem ; 
 
 
 }

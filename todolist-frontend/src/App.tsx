@@ -5,6 +5,8 @@ import './App.css';
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
+import AddTask from "./pages/AddTask";
+import EditTask from "./pages/EditTask";
 
 function App() {
    
@@ -16,8 +18,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home></Home>} />
-      <Route path="/login" element={ <LogIn></LogIn>} />
-      <Route path="/signup" element={ <SignUp></SignUp >} />
+        <Route path='/addtask' element= {<AddTask></AddTask>}></Route>
+        <Route path='/edittask' element= {<EditTask></EditTask >}></Route>
+        <Route path="/login" element={ <LogIn></LogIn>} />
+        <Route path="/signup" element={ <SignUp></SignUp >} />
        
     </Routes>
 
