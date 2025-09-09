@@ -1,6 +1,6 @@
 import TopMenu from '../../components/TopMenu';
 import Default from '../../templates/Default';
-import styles from './styles.module.css';
+
 
 
 export default function EditTask(){
