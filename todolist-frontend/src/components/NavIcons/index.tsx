@@ -3,11 +3,12 @@ import styles from './styles.module.css';
 
 type NavIconsProps = {
     iconName:  string,
-    linkTo: string
+    linkTo: string,
+    title: string
 
 }
 
-export default function NavIcons({iconName, linkTo}: NavIconsProps){
+export default function NavIcons({iconName, linkTo,title}: NavIconsProps){
 
 return (
 
@@ -15,7 +16,7 @@ return (
 
     <>
     
-      <Link to= {linkTo}> <span className={`${styles.icon} material-symbols-outlined`}>{iconName}
+      <Link to= {linkTo}> <span title= {title}className={`${styles.icon} material-symbols-outlined`}>{iconName}
 </span> </Link>
     
     </>

@@ -5,6 +5,7 @@
     width: 90%;
     margin-top: 1.5rem;
     justify-content: center;
+    align-items:center;
     gap:1px
 
 }
@@ -29,7 +30,7 @@
   height:2rem; 
   gap: 3rem ; 
   flex:1;
-  margin-top: 1.3rem;
+ 
   border: 0.5px solid rgb(0, 56, 104);
    
 

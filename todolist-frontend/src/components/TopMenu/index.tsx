@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import styles from './styles.module.css';
 import type React from 'react';
 import NavIcons from '../NavIcons';
@@ -35,9 +35,9 @@ return(
  
 
 
-<NavIcons linkTo= {'/'}  iconName= {'home'}></NavIcons>
-<NavIcons linkTo= {'addtask'}  iconName= {'add'}></NavIcons>
-<NavIcons linkTo= {'/login'}  iconName= {'login'}></NavIcons>
+<NavIcons title='Pagina Inicial ' linkTo= {'/'}  iconName= {'home'}></NavIcons>
+<NavIcons title='Adicionar tarefa' linkTo= {'addtask'}  iconName= {'add'}></NavIcons>
+<NavIcons title='Pagina de Login' linkTo= {'/login'}  iconName= {'login'}></NavIcons>
 
  
 

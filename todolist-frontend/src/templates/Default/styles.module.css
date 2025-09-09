@@ -12,12 +12,13 @@
 }
 
 .containerDefault{
-
+   
     background-color: rgba(0, 117, 156, 0.749);
     min-height: 55vh;
     width: 40rem ;
     border-radius: 1rem ; 
     display:flex;
-  
+    flex-direction: column;
     justify-content: center;
+    align-items:center
 }

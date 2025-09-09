@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 type GeneralFormProps= {
-    title: React.ReactNode, 
+    title?: React.ReactNode, 
     firstInput: React.HTMLInputTypeAttribute,
     secondInput: React.HTMLInputTypeAttribute,
     submitButton: string ,
