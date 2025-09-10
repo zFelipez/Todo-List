@@ -1,17 +1,19 @@
+
 import NavIcons from '../NavIcons'
 import styles from './styles.module.css'
+import { useTodoListContext } from '../../context/TodoList';
+import { type Task} from '../../context/TodoList';
+
 
 
 
 
 export default function TasksList(){
 
-      let loggedIn= false; 
+      const {loggedIn,setLoggedIn} = useTodoListContext().userStatus
+      const {tasksList,setTasksList} = useTodoListContext().tasks
 
-      let listexmple = [  {id:1 , titulo: 'tarefa 1' , tarefa : 'fazer'},
-        {id:2 , titulo: 'tarefa 2' , tarefa : 'fazer'},
-        {id:3 , titulo: 'tarefa 3' , tarefa : 'fazer'},   {id:4 , titulo: 'tarefa 3' , tarefa : 'fazer'},{id:4 , titulo: 'tarefa 3' , tarefa : 'fazer'}
-       ]
+      
     return(
          
         <>
@@ -20,15 +22,15 @@ export default function TasksList(){
 
         {
 
-         loggedIn ?  listexmple.map((task)=>{
+         loggedIn ?  tasksList.map((task: Task)=>{
             return <div key={task.id} className={styles.taskContainer}>
               
             
 
              <div className={styles.textContainer}>
 
-              <h2 className={styles.h2}> {task.titulo}</h2>
-               <p className={styles.p}>  {task.tarefa}</p>
+              <h2 className={styles.h2}> {task.title}</h2>
+               <p className={styles.p}>  {task.task}</p>
 
               </div>
 
