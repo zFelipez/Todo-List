@@ -30,6 +30,37 @@ app.get('/api/allTasks', async (req, res) => {
 
 
 
+
+
+app.post('/api/addTask',async( req, res ) => {
+
+    
+
+try{
+     console.log(req.body)
+     const {title,task} = req.body ; 
+
+     if( !title || !task ){
+
+      return res.status(400).json({error: "Todos os campos sao obrigatorios"}); //perguntar sobre status.json
+
+     }
+
+     const result  = await pool.query( 'INSERT INTO tasks (title,task) VALUES ($1,$2) RETURNING *', [title, task])
+
+    res.status(201).json(result.rows[0]); // Perguntar o pq do returning * e tambem disso aqui
+
+}catch(err){
+  console.error('Erro ao inserir tarefa ', err);
+  res.status(500).json({error: "Erro ao inserir tarefa "});
+
+
+}
+
+})
+
+
+
 app.listen(PORT, () => {
   console.log(`Servidor na porta ${PORT}`);
 });

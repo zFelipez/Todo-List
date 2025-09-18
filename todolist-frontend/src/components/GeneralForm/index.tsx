@@ -12,10 +12,12 @@ type GeneralFormProps= {
     logOrSignPage:boolean, 
     sentence?: string, 
     link?: string,
-    children?: React.ReactNode
+    children?: React.ReactNode,
+    btnFunction? : ()=> void
 } 
 
-export default function GeneralForm ( {title, firstInput, secondInput,submitButton,placeholdFirst,placeholdSecond, logOrSignPage, sentence, link,children } : GeneralFormProps){
+export default function GeneralForm ( {title, firstInput, secondInput,submitButton,placeholdFirst,
+  placeholdSecond, logOrSignPage, sentence, link,children,btnFunction } : GeneralFormProps){
 
 
 
@@ -36,7 +38,10 @@ export default function GeneralForm ( {title, firstInput, secondInput,submitButt
         <input  className= {styles.secondInput }type={secondInput}  placeholder= {placeholdSecond} />
 
 
-       <button className = {styles.btn }> {submitButton} </button>
+       <button className = {styles.btn }
+       onClick= {async (e)=> {e.preventDefault() 
+       
+       await btnFunction?.()}}>  {submitButton} </button>
        
        <p>     { logOrSignPage && link && (<Link to={link}> {sentence}</Link>)}</p>
 

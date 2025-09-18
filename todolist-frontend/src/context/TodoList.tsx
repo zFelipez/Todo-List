@@ -26,7 +26,7 @@ const TodoListContext = createContext<TodoListContextType  | undefined>(undefine
 
 export function TodoListProvider( {children}: {children: ReactNode}) {
  
-   const [loggedIn, setLoggedIn] = useState (false);
+   const [loggedIn, setLoggedIn] = useState (true);
    const [tasksList,setTasksList] = useState<Task[]>([]);
 
    const value : TodoListContextType = {
