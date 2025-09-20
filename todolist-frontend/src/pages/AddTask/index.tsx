@@ -10,9 +10,12 @@ export default function AddTask(){
    
   const {setTasksList}= useTodoListContext().tasks; 
 
-  async function addTask (){
 
-   const tasks= { title: 'titulo 2', task: 'tarefa 2', completed:true};
+
+
+  async function addTask (title:string,task:string){
+
+   const tasks= { title: title, task: task, completed:false};
   try{
     console.log('cheguei aqui')
     const res= await fetch("http://localhost:5000/api/addTask",{
@@ -46,7 +49,7 @@ export default function AddTask(){
      <TopMenu h1= {'Adicionar Tarefa '}/>
      <GeneralForm  firstInput='text' secondInput='text' submitButton='Adicionar Tarefa ' placeholdFirst=' Digite titulo da Tarefa ' 
        
-       placeholdSecond='Digite sua tarefa' logOrSignPage= {false}  link={'/'} btnFunction={addTask}>
+       placeholdSecond='Digite sua tarefa' logOrSignPage= {false}  link={'/'} btnFunction={addTask} actualPageForm='addTask'>
        
 
 

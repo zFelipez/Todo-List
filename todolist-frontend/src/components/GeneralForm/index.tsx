@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import styles from './styles.module.css';
 import { Link } from "react-router-dom";
+import { messageTimeout } from '../../utils/messageTimeout';
 
 
 type GeneralFormProps= {
@@ -13,14 +15,20 @@ type GeneralFormProps= {
     sentence?: string, 
     link?: string,
     children?: React.ReactNode,
-    btnFunction? : ()=> void
+    btnFunction? : (title:string, task: string )=> void | Promise<void>,
+    actualPageForm: 'signUp' | 'logIn' | 'addTask'
 } 
 
 export default function GeneralForm ( {title, firstInput, secondInput,submitButton,placeholdFirst,
-  placeholdSecond, logOrSignPage, sentence, link,children,btnFunction } : GeneralFormProps){
+  placeholdSecond, logOrSignPage, sentence, link,children,btnFunction , actualPageForm} : GeneralFormProps){
 
 
+     const [firstText, setFirstText]= useState(''); 
+     const [secondText, setSecondText]= useState(''); 
+     const [message, setMessage] = useState<string| null>(null);
+     const [isError, setIsError] = useState(false);
 
+       
 
     return  (
 
@@ -34,16 +42,80 @@ export default function GeneralForm ( {title, firstInput, secondInput,submitButt
           {children && <div className={styles.children}>{children}</div>  }
          <div className={styles.formContainer}>
  <h1 className={styles.h1}> {title} </h1>
-        <input className = {styles.firstInput} type={firstInput}  placeholder= { placeholdFirst } />
-        <input  className= {styles.secondInput }type={secondInput}  placeholder= {placeholdSecond} />
+      
+      
+      
+        <input className = {styles.firstInput} value= {firstText}
+        
+        onChange= {(e)=>{
+
+       setFirstText(e.target.value);
+
+        }}type={firstInput}  placeholder= { placeholdFirst } />
+
+
+        <input  className= {styles.secondInput } value={secondText}
+         
+         onChange={(e)=>{
+
+          setSecondText(e.target.value)
+         
+         }}type={secondInput}  placeholder= {placeholdSecond} />
 
 
        <button className = {styles.btn }
-       onClick= {async (e)=> {e.preventDefault() 
+      
+      onClick= {async (e)=> {
+        e.preventDefault() 
+
+      if(actualPageForm ==='logIn'){
+
+         return 
+      }     
+
+      if (actualPageForm ==='signUp'){
+
+
+        return
+      } 
+
+      if( actualPageForm === 'addTask'){
+        if( firstText === '' || secondText === ''){
+            setMessage('Os dois campos sao obrigatorios')
+            setIsError(true)
+            messageTimeout(setMessage)
+          return 
+        }
        
-       await btnFunction?.()}}>  {submitButton} </button>
+       try{
+
+         setMessage(' Tarefa adicionada com sucesso');
+         setIsError(false)
+
+         await btnFunction?.(firstText, secondText);
+         messageTimeout(setMessage)
+       }catch(err){
+
+        setMessage('Erro ao tentar adicionar tarefa.');
+        setIsError(true)
+        messageTimeout(setMessage)
+       }
        
-       <p>     { logOrSignPage && link && (<Link to={link}> {sentence}</Link>)}</p>
+        
+      }
+  
+       }}>  {submitButton} </button>
+
+       <div className={styles.message}>
+       { message && (
+
+        <div className= {   isError? styles.isErrorMessage : styles.isSucceededMessage }> 
+         {message}
+        </div>  
+
+       )}</div>
+       
+       <p>     { logOrSignPage && link && (<Link to={link}> {sentence}</Link>) }</p>
 
        </div>
  

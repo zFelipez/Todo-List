@@ -70,3 +70,25 @@
 
   
 }
+
+.message{
+
+  height: 1rem; 
+  width: fit-content;
+  
+
+}
+
+.isErrorMessage{
+  
+  background-color: rgb(170, 42, 42);
+  border: 1px solid rgb(128, 83, 0); 
+  padding: 0.5rem;
+
+}
+
+.isSucceededMessage{
+  background-color: rgb(119, 170, 42);
+  border: 1px solid green; 
+  padding: 0.5rem;
+}
